@@ -7,6 +7,40 @@ import EmployeesAddForm from '../employees-add-form/employees-add-form';
 import './app.css';
 
 function App() {
+    
+    const data = [
+      {
+        name: "John Smith",
+        salary: 800,
+        increase: false,
+        id: 1
+      },
+      {
+        name: "Alex Stormy",
+        salary: 1500,
+        increase: true,
+        id: 2
+      },
+      {
+        name: "Samanta Ocean",
+        salary: 500,
+        increase: false,
+        id: 3
+      },
+      {
+        name: "Samanta Ocean",
+        salary: 3800,
+        increase: true,
+        id: 4
+      },
+    ];
+
+    data.forEach((item) => {
+        if(item.increase){
+            
+        }
+    });
+
     return (
         <div className="app">
             <AppInfo/>
@@ -16,7 +50,7 @@ function App() {
                 <AppFilter/>
             </div>
 
-            <EmployeesList/>
+            <EmployeesList data={data}/>
 
             <EmployeesAddForm/>
         </div>
