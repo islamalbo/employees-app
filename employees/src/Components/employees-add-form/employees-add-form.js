@@ -7,19 +7,27 @@ class EmployeesAddForm extends Component {
     super(props);
     this.state = {
       name: "",
-      salary: '',
+      salary: "",
     };
   }
 
   onValueChange = (e) => {
     this.setState({
-      [e.target.name]: e.target.value
-    })
-  }
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  // addEmlpoyee = (e) => {
+  //   e.preventDefault();
+  //   let newEmployee = {
+  //     name: e.target.name,
+  //     salary: e.target.salary,
+  //   };
+  // };
 
   render() {
-    const {name, salary} = this.state
-
+    const { name, salary } = this.state;
+    
     return (
       <div className="app-add-form">
         <h3>Добавьте нового сотрудника</h3>
@@ -28,7 +36,7 @@ class EmployeesAddForm extends Component {
             type="text"
             className="form-control new-post-label"
             placeholder="Как его зовут?"
-            name='name'
+            name="name"
             value={name}
             onChange={this.onValueChange}
           />
@@ -36,18 +44,22 @@ class EmployeesAddForm extends Component {
             type="number"
             className="form-control new-post-label"
             placeholder="З/П в $?"
-            name='salary'
+            name="salary"
             value={salary}
             onChange={this.onValueChange}
           />
 
-          <button type="submit" className="btn btn-outline-light">
+          <button
+            type="submit"
+            className="btn btn-outline-light"
+            onSubmit={this.addEmployee}
+          >
             Добавить
           </button>
         </form>
       </div>
     );
   }
-};
+}
 
 export default EmployeesAddForm;
