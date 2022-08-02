@@ -13,33 +13,25 @@ function App() {
         name: "John Smith",
         salary: 800,
         increase: false,
-        id: 1
+        id: 1,
+        like: false
       },
       {
         name: "Alex Stormy",
         salary: 1500,
         increase: true,
-        id: 2
+        id: 2,
+        like: false,
       },
       {
         name: "Samanta Ocean",
         salary: 500,
         increase: false,
-        id: 3
-      },
-      {
-        name: "Samanta Ocean",
-        salary: 3800,
-        increase: true,
-        id: 4
+        id: 3,
+        like: false,
       },
     ];
 
-    data.forEach((item) => {
-        if(item.increase){
-            
-        }
-    });
 
     return (
         <div className="app">
