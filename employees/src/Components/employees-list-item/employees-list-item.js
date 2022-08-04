@@ -1,34 +1,17 @@
-import { Component } from 'react';
 
 import './employees-list-item.css';
 
-class EmployeesListItem extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: this.name,
-      salary: this.salary,
-      increase: false,
-      like: false
-    }
-  } 
-  
-  onIncrease = () => {
-      this.setState(({increase}) => ({
-        increase: !increase
-      })) 
-    }
-  
-  addLike = () => {
-      this.setState(({like}) => ({
-      like: !like
-    }))
-    
-  }
-  render() {
-    const {name, salary, onDelete} = this.props;
-    const {increase} = this.state;
-    const {like} = this.state;
+const EmployeesListItem = (props) => {
+
+    const {
+      name,
+      salary,
+      onDelete,
+      onToggleProp,
+      increase,
+      rise,
+    } = props;
+
 
     let classNames = "list-group-item d-flex justify-content-between";
     
@@ -36,14 +19,18 @@ class EmployeesListItem extends Component {
       classNames += ' increase'
     }
 
-    if (like) {
+    if (rise) {
       classNames += ' like'
     } 
 
 
     return (
       <li className={classNames}>
-        <span className="list-group-item-label" onClick={this.addLike}>
+        <span
+          className="list-group-item-label"
+          onClick={onToggleProp}
+          data-toggle="rise"
+        >
           {name}
         </span>
         <input
@@ -55,13 +42,17 @@ class EmployeesListItem extends Component {
           <button
             type="button"
             className="btn-cookie btn-sm "
-            onClick={this.onIncrease}
+            data-toggle="increase"
+            onClick={onToggleProp}
           >
             <i className="fas fa-cookie"></i>
           </button>
 
-          <button type="button" className="btn-trash btn-sm "
-          onClick={onDelete}>
+          <button
+            type="button"
+            className="btn-trash btn-sm "
+            onClick={onDelete}
+          >
             <i className="fas fa-trash"></i>
           </button>
           <i className="fas fa-star"></i>
@@ -69,6 +60,6 @@ class EmployeesListItem extends Component {
       </li>
     );
   }
-}
+
 
 export default EmployeesListItem;
